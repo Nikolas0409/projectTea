@@ -1,12 +1,11 @@
-import express from 'express';
-import { Tea } from '../../db/models';
 import { Router } from 'express';
+import { Tea } from '../../db/models';
 
 const router = Router();
 
 router.get('/', (req, res) => {
   const initState = { hello: 'world' };
-  res.render('IndexPage', initState);
+  res.render('MainPage', initState);
 });
 
 router.get('/:id', async (req, res) => {
