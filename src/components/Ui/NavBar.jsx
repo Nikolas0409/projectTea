@@ -8,7 +8,7 @@ export default function NavBar() {
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Container>
-        <Navbar.Brand href="#home">Чайный мир</Navbar.Brand>
+        <Navbar.Brand href="/">Чайный мир</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
