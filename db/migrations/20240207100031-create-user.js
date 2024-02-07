@@ -17,14 +17,12 @@ module.exports = {
       password: {
         type: Sequelize.STRING,
       },
-      roleId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Roles',
-          key: 'id',
-        },
-        onDelete: 'CASCADE',
+      isAdmin: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
       },
+
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
