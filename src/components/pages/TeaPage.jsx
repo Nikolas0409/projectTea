@@ -2,22 +2,30 @@ import React from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
 
 export default function TeaPage({ tea }) {
+  const cardStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: '50px',
+    marginBottom: '50px',
+  };
   return (
     <>
-      <Card style={{ width: '18rem' }}>
-        <Card.Img
-          variant="top"
-          src={`${tea.image}`}
-          style={{ width: '100px' }}
-        />
-        <Card.Body>
-          <Card.Title>{tea.name}</Card.Title>
-          <Card.Text>
-            {tea.discription}
-          </Card.Text>
-          <Button variant="primary">На главную</Button>
-        </Card.Body>
-      </Card>
+      <div style={cardStyle}>
+        <Card style={{ width: '18rem' }}>
+          <Card.Img
+            variant="top"
+            src={`${tea.image}`}
+            style={{ width: '286px' }}
+          />
+          <Card.Body>
+            <Card.Title style={{ textAlign: 'center' }}>{tea.name}</Card.Title>
+            <Card.Text style={{ textAlign: 'center' }}>
+              {tea.discription}
+            </Card.Text>
+            <Button variant="primary" style={{ marginLeft: '70px' }}>На главную</Button>
+          </Card.Body>
+        </Card>
+      </div>
       <Form>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Email address</Form.Label>
