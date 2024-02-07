@@ -1,10 +1,18 @@
-import express from 'express';
+import { Router } from 'express';
 
-const router = express.Router();
+const router = Router();
 
 router.get('/', (req, res) => {
   const initState = { hello: 'world' };
   res.render('MainPage', initState);
+});
+
+router.get('/signup', (req, res) => {
+  res.render('SignUpPage');
+});
+
+router.get('/login', (req, res) => {
+  res.render('LoginPage');
 });
 
 export default router;
