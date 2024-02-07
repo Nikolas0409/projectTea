@@ -24,5 +24,6 @@ app.use(resLocals);
 
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
+app.use('/teaPage', indexRouter);
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));
