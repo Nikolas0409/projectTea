@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/signup', (req, res) => {
-  res.render('SignUpPage');
+  res.render('SignupPage');
 });
 
 router.get('/login', (req, res) => {
