@@ -1,7 +1,8 @@
 import express from 'express';
 import { Tea } from '../../db/models';
+import { Router } from 'express';
 
-const router = express.Router();
+const router = Router();
 
 router.get('/', (req, res) => {
   const initState = { hello: 'world' };
