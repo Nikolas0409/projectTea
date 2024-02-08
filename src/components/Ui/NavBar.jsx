@@ -38,10 +38,12 @@ export default function NavBar({ user }) {
                     !
                   </Nav>
                 </Nav>
+                {user.isAdmin && (
+                  <Nav>
+                    <Nav.Link href="/admin">Админ-панель</Nav.Link>
+                  </Nav>
+                )}
                 <Nav>
-                  <Nav.Link eventKey={2} href="/admin">
-                    Админ-панель
-                  </Nav.Link>
                   <Nav.Link href="/api/logout">Выход</Nav.Link>
                 </Nav>
               </>
