@@ -22,7 +22,7 @@ export default function TeaPage({ tea }) {
             <Card.Text style={{ textAlign: 'center' }}>
               {tea.discription}
             </Card.Text>
-            <Button variant="primary" style={{ marginLeft: '70px' }}>На главную</Button>
+            <Button variant="primary" href="/" style={{ marginLeft: '70px' }}>На главную</Button>
           </Card.Body>
         </Card>
       </div>
