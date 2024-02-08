@@ -67,12 +67,4 @@ router.get('/logout', (req, res) => {
   res.clearCookie('accessToken').clearCookie('refreshToken').sendStatus(200);
 });
 
-
-
-
-
-
-
-
-
 export default router;
