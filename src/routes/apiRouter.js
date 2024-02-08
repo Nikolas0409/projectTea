@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import bcrypt from 'bcrypt';
-import { User } from '../../db/models';
+import { User, Tea } from '../../db/models';
 import generateTokens from '../utils/generateTokens';
 import cookieConfig from '../config/cookiesConfig';
 
@@ -65,6 +65,11 @@ router.post('/login', async (req, res) => {
 
 router.get('/logout', (req, res) => {
   res.clearCookie('accessToken').clearCookie('refreshToken').redirect('/');
+});
+
+router.post('/add', async (req, res) => {
+  const newTea = await Tea.create(req.body);
+  res.json(newTea);
 });
 
 export default router;
