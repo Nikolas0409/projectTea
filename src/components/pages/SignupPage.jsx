@@ -17,7 +17,7 @@ export default function SignupPage() {
       <div className="mb-3">
         <label htmlFor="exampleInputEmail1" className="form-label">
           Username
-          <input name="username" type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+          <input name="name" type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
         </label>
       </div>
       <div className="mb-3">

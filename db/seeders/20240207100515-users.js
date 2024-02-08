@@ -1,10 +1,12 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+const bcrypt = require('bcrypt');
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Users', [{
       name: 'Johny',
       email: 'salam@123.ru',
-      password: '1234',
+      password: await bcrypt.hash('123', 10),
       isAdmin: true,
     }], {});
 
@@ -60,21 +62,16 @@ module.exports = {
       {
         name: 'Масала',
         location: 'Индия',
-<<<<<<< HEAD
-        // latitude: DataTypes.STRING,
-        // longitude: DataTypes.STRING,
-=======
         latitude: '20.455856',
+        longitude: '85.510138',
+        image: 'https://ir.ozone.ru/s3/multimedia-5/6490695773.jpg',
+        discription: 'Масала это уникальный Индийский чай с пряностями, одновременно сочетающий бодрящий, успокаивающий эффект и совершенно особенный аромат, который в одно мгновение переносит в Индию. Придаёт сил, ускоряет обмен веществ и приносит ощутимую пользу организму. Мягкий вкус, сладковатое послевкусие и изумительно нежный цвет настоя.',
       },
       {
+        name: 'Сенча',
         location: 'Япония',
-<<<<<<< HEAD
-        // latitude: DataTypes.STRING,
-        // longitude: DataTypes.STRING,
-=======
         latitude: '32.581991',
         longitude: '131.665047',
->>>>>>> main
         image: 'https://palaisdesthes.ru/upload/resize_cache/iblock/93e/586_586_1/2jdumwjqsztqpivn74lc93z7k2n89fyd.jpg',
         discription: 'Японский зеленый листовой чай Сенча — это самый популярный вид чая в Японии. Главное отличие сенчи от других видов зеленого чая заключается в способе его обработки. Верхние листики весеннего сбора пропариваются, а не прожариваются, в отличие, к примеру, от большинства китайских сортов.',
       },
