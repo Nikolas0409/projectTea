@@ -1,5 +1,5 @@
 import express from 'express';
-import { Tea, User } from '../../db/models';
+import { Tea, User, Comment } from '../../db/models';
 import { verifyAccessToken } from '../middlewares/verifyTokens';
 
 const teaRouter = express.Router();
@@ -11,9 +11,13 @@ teaRouter.get('/:id', async (req, res) => {
 });
 
 teaRouter.post('/:id', verifyAccessToken, async (req, res) => {
+  const { title } = req.body;
+  const { id } = req.params.id;
   const newComment = await Comment.create({
-    ...req.body,
     userId: res.locals.user.id,
+    title,
+    teaId: id,
+
   });
   const newCommentWithAuthor = await Comment.findOne({
     where: { id: newComment.id },
