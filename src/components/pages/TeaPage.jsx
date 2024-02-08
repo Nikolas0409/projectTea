@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Card, Form } from 'react-bootstrap';
 
 export default function TeaPage({ tea }) {
@@ -11,6 +11,30 @@ export default function TeaPage({ tea }) {
     flexWrap: 'wrap',
     alignContent: 'center',
   };
+  const [inputValue, setInputValue] = useState({
+    title: '',
+    userId: '',
+    teaId: '',
+  });
+
+  const changeHandler = (e) => {
+    console.log(e.target.name, e.target.value);
+    setInputValue((prev) => ({
+      ...prev, [e.target.name]: e.target.value,
+    }));
+  };
+
+  const addComments = async (event) => {
+    event.preventDefault();
+    const response = await fetch(`http://localhost:3000/teaPage/${tea.id}`, {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify(inputValue),
+    });
+    const data = await response.json();
+    setInputValue((prev) => [data, ...prev]);
+  };
+
   return (
     <>
       <div style={cardStyle}>
@@ -29,15 +53,15 @@ export default function TeaPage({ tea }) {
           </Card.Body>
         </Card>
       </div>
-      <Form style={cardStyle}>
+      <Form style={cardStyle} onSubmit={addComments}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" style={{ width: '50%' }}>
           <Form.Label />
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
           <Form.Label />
-          <Form.Control as="textarea" rows={3} placeholder="Оставьте комментарий" />
+          <Form.Control as="textarea" rows={3} name="title" placeholder="Оставьте комментарий" value={inputValue.title} onChange={changeHandler} />
         </Form.Group>
-        <Button variant="success" style={cardStyle}>Добавить</Button>
+        <Button type="submit" variant="success" style={cardStyle}>Добавить</Button>
         {' '}
       </Form>
     </>
