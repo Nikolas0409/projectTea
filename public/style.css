@@ -1,3 +1,7 @@
+.map {
+    width: 700px;
+    height: 400px;
+}
 body {
     background-image: url('./img/3386277.jpg');
     background-position: center;
