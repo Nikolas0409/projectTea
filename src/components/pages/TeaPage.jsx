@@ -15,7 +15,12 @@ export default function TeaPage({ tea }) {
           <Card.Text>
             {tea.discription}
           </Card.Text>
-          <Button variant="primary">На главную</Button>
+          <Button
+            variant="primary"
+            href="/"
+          >
+            На главную
+          </Button>
         </Card.Body>
       </Card>
       <Form>
