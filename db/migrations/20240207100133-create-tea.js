@@ -14,6 +14,12 @@ module.exports = {
       location: {
         type: Sequelize.STRING,
       },
+      latitude: {
+        type: Sequelize.STRING,
+      },
+      longitude: {
+        type: Sequelize.STRING,
+      },
       image: {
         type: Sequelize.TEXT,
       },

@@ -8,6 +8,14 @@ router.get('/', (req, res) => {
   res.render('MainPage', initState);
 });
 
+router.get('/signup', (req, res) => {
+  res.render('SignupPage');
+});
+
+router.get('/login', (req, res) => {
+  res.render('LoginPage');
+});
+
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   const tea = await Tea.findByPk(id);
