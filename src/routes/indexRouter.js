@@ -24,12 +24,6 @@ router.get('/login', (req, res) => {
   res.render('LoginPage');
 });
 
-router.get('/:id', async (req, res) => {
-  const { id } = req.params;
-  const tea = await Tea.findByPk(id);
-  res.render('TeaPage', { tea });
-});
-
 // router.get('*', (req, res) => {
 //   res.redirect('/');
 // });

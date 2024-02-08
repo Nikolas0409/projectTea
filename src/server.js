@@ -8,6 +8,7 @@ import indexRouter from './routes/indexRouter';
 import apiRouter from './routes/apiRouter';
 import apiAdminRouter from './routes/apiAdminRouter';
 import resLocals from './middlewares/resLocals';
+import teaRouter from './routes/teaRouter';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -18,14 +19,14 @@ app.set('views', path.join(__dirname, 'components', 'pages'));
 
 app.use(express.static('public'));
 app.use(morgan('dev'));
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(resLocals);
 
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
-app.use('/teaPage', indexRouter);
+app.use('/teaPage', teaRouter);
 app.use('/api/admin', apiAdminRouter);
 // app.get('*', (req, res) => {
 //   res.send('Страница не найдена');
