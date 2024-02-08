@@ -3,8 +3,9 @@ import { Tea } from '../../db/models';
 
 const router = Router();
 
-router.get('/', (req, res) => {
-  const initState = { hello: 'world' };
+router.get('/', async (req, res) => {
+  const data = await Tea.findAll();
+  const initState = { data };
   res.render('MainPage', initState);
 });
 
