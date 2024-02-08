@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import NewPage from './NewPage';
 
 export default function AdminPage({ teas }) {
   const [curElement, setCurElement] = useState({});
   const [allTeas, setAllTeas] = useState(teas);
+  const [showComponent, setShowComponent] = useState(false);
 
   const deleteHandler = async (id) => {
     try {
@@ -17,7 +19,10 @@ export default function AdminPage({ teas }) {
     <div className="container mt-3">
 
       <div className="track1c mb-3">
-
+      <button type="submit" style={{ width: '200px', height: '200px' }} className="button dark" onClick={() => setShowComponent(true)}>Добавить чай</button>
+        <div>
+          {showComponent && <NewPage setShowComponent={setShowComponent} setAllTeas={setAllTeas} />}
+        </div>
         {allTeas?.map((el) => (
           <div key={el.id} className="row justify-content-center">
             <div className="col-8 card mb-3">
