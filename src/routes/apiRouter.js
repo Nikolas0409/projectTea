@@ -55,24 +55,16 @@ router.post('/login', async (req, res) => {
   const plainUser = user.get();
   delete plainUser.password;
 
-  const { access, refresh } = generateTokens({ user: plainUser });
+  const { accessToken, refreshToken } = generateTokens({ user: plainUser });
 
   res
-    .cookie('accessToken', access, cookieConfig.access)
-    .cookie('refreshToken', refresh, cookieConfig.refresh)
+    .cookie('accessToken', accessToken, cookieConfig.access)
+    .cookie('refreshToken', refreshToken, cookieConfig.refresh)
     .sendStatus(200);
 });
 
 router.get('/logout', (req, res) => {
-  res.clearCookie('accessToken').clearCookie('refreshToken').sendStatus(200);
+  res.clearCookie('accessToken').clearCookie('refreshToken').redirect('/');
 });
-
-
-
-
-
-
-
-
 
 export default router;
