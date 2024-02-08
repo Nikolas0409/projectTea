@@ -7,6 +7,9 @@ export default function TeaPage({ tea }) {
     justifyContent: 'center',
     marginTop: '50px',
     marginBottom: '50px',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    alignContent: 'center',
   };
   return (
     <>
@@ -26,15 +29,16 @@ export default function TeaPage({ tea }) {
           </Card.Body>
         </Card>
       </div>
-      <Form>
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="name@example.com" />
+      <Form style={cardStyle}>
+        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" style={{ width: '50%' }}>
+          <Form.Label />
         </Form.Group>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-          <Form.Label>Оставьте комментарий</Form.Label>
-          <Form.Control as="textarea" rows={3} />
+          <Form.Label />
+          <Form.Control as="textarea" rows={3} placeholder="Оставьте комментарий" />
         </Form.Group>
+        <Button variant="success" style={cardStyle}>Добавить</Button>
+        {' '}
       </Form>
     </>
   );
