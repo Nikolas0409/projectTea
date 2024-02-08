@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
   Tea.init({
     name: DataTypes.STRING,
     location: DataTypes.STRING,
+    latitude: DataTypes.STRING,
+    longitude: DataTypes.STRING,
     image: DataTypes.TEXT,
     discription: DataTypes.TEXT,
   }, {

@@ -17,6 +17,7 @@ export default function Layout({ children, initState }) {
           src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"
           crossOrigin
         />
+        <link rel="stylesheet" href="/style.css" />
         <script defer src="/app.js" />
         <script defer src="/vendor.js" />
         <script
