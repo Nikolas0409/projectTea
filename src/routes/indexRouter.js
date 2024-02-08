@@ -9,6 +9,12 @@ router.get('/', async (req, res) => {
   res.render('MainPage', initState);
 });
 
+router.get('/admin', async (req, res) => {
+  const teas = await Tea.findAll();
+  const initState = { teas };
+  res.render('AdminPage', initState);
+});
+
 router.get('/signup', (req, res) => {
   res.render('SignupPage');
 });
@@ -22,5 +28,7 @@ router.get('/:id', async (req, res) => {
   const tea = await Tea.findByPk(id);
   res.render('TeaPage', { tea });
 });
+
+
 
 export default router;
