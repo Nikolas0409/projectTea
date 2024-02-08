@@ -33,7 +33,7 @@ export default function AdminPage({ teas }) {
                 </div>
               </div>
             </div>
-          </div>
+          </div>1
         ))}
       </div>
     </div>
