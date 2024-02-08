@@ -6,6 +6,7 @@ import 'dotenv/config';
 import jsxRender from './utils/jsxRender';
 import indexRouter from './routes/indexRouter';
 import apiRouter from './routes/apiRouter';
+import apiAdminRouter from './routes/apiAdminRouter';
 import resLocals from './middlewares/resLocals';
 
 const PORT = process.env.PORT || 3000;
@@ -25,5 +26,9 @@ app.use(resLocals);
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
 app.use('/teaPage', indexRouter);
+app.use('/api/admin', apiAdminRouter);
+// app.get('*', (req, res) => {
+//   res.send('Страница не найдена');
+// });
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));

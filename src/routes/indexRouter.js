@@ -30,4 +30,8 @@ router.get('/:id', async (req, res) => {
   res.render('TeaPage', { tea });
 });
 
+// router.get('*', (req, res) => {
+//   res.redirect('/');
+// });
+
 export default router;
