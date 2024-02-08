@@ -9,6 +9,13 @@ router.get('/', async (req, res) => {
   res.render('MainPage', initState);
 });
 
+router.get('/admin', async (req, res) => {
+  const teas = await Tea.findAll();
+  const initState = { teas };
+
+  res.render('AdminPage', initState);
+});
+
 router.get('/signup', (req, res) => {
   res.render('SignupPage');
 });
@@ -16,5 +23,9 @@ router.get('/signup', (req, res) => {
 router.get('/login', (req, res) => {
   res.render('LoginPage');
 });
+
+// router.get('*', (req, res) => {
+//   res.redirect('/');
+// });
 
 export default router;
