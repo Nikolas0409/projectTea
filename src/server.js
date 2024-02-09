@@ -4,11 +4,12 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import 'dotenv/config';
 import jsxRender from './utils/jsxRender';
-import indexRouter from './routes/indexRouter';
-import apiRouter from './routes/apiRouter';
-import apiAdminRouter from './routes/apiAdminRouter';
 import resLocals from './middlewares/resLocals';
-import teaRouter from './routes/teaRouter';
+import indexRouter from './routes/render/indexRouter';
+import authRouter from './routes/render/authRender';
+import teaPageRouter from './routes/render/renderTeaRouter';
+import apiAuthRouter from './routes/api/apiAuthRouter';
+import apiRouter from './routes/api/apiRouter';
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -25,11 +26,13 @@ app.use(cookieParser());
 app.use(resLocals);
 
 app.use('/', indexRouter);
+app.use('/auth', authRouter);
+app.use('/teaPage', teaPageRouter);
+app.use('/api', apiAuthRouter);
 app.use('/api', apiRouter);
-app.use('/teaPage', teaRouter);
-app.use('/api/admin', apiAdminRouter);
-// app.get('*', (req, res) => {
-//   res.send('Страница не найдена');
-// });
+
+app.get('*', (req, res) => {
+  res.redirect('/');
+});
 
 app.listen(PORT, () => console.log(`App has started on port ${PORT}`));

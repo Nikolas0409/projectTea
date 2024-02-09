@@ -21,10 +21,10 @@ export default function NavBar({ user }) {
                   <Nav style={{ color: 'white' }}>Добро пожаловать, гость!</Nav>
                 </Nav>
                 <Nav>
-                  <Nav.Link eventKey={2} href="/signup">
+                  <Nav.Link eventKey={2} href="/auth/signup">
                     Регистрация
                   </Nav.Link>
-                  <Nav.Link href="/login">Вход</Nav.Link>
+                  <Nav.Link href="/auth/login">Вход</Nav.Link>
                 </Nav>
               </>
             )

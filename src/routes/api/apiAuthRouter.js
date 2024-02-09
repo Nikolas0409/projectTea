@@ -1,14 +1,10 @@
 import { Router } from 'express';
 import bcrypt from 'bcrypt';
-import { User, Tea } from '../../db/models';
-import generateTokens from '../utils/generateTokens';
-import cookieConfig from '../config/cookiesConfig';
+import { User } from '../../../db/models';
+import generateTokens from '../../utils/generateTokens';
+import cookieConfig from '../../config/cookiesConfig';
 
 const router = Router();
-
-router.get('/', (req, res) => {
-  res.json({ hello: 'world' });
-});
 
 router.post('/signup', async (req, res) => {
   const { name, email, password } = req.body;
@@ -65,27 +61,6 @@ router.post('/login', async (req, res) => {
 
 router.get('/logout', (req, res) => {
   res.clearCookie('accessToken').clearCookie('refreshToken').redirect('/');
-});
-
-router.post('/add', async (req, res) => {
-  const newTea = await Tea.create(req.body);
-  res.json(newTea);
-});
-
-router.patch('/:id', async (req, res) => {
-  const {
-    name, location, latitude, longitude, image, discription,
-  } = req.body;
-  const id = +req.params.id;
-  const tea = await Tea.findOne({ where: { id } });
-  tea.name = name;
-  tea.location = location;
-  tea.latitude = latitude;
-  tea.longitude = longitude;
-  tea.image = image;
-  tea.discription = discription;
-  await tea.save();
-  res.sendStatus(200);
 });
 
 export default router;
