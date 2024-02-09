@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
-import { Button, Card, Form } from 'react-bootstrap';
+import {
+  Button, Card, Form,
+} from 'react-bootstrap';
+import CommentCard from '../Ui/CommentCard';
 
-export default function TeaPage({ tea }) {
+export default function TeaPage({
+  tea, commentByTeaId,
+}) {
+  const [comments, setComments] = useState(commentByTeaId);
   const cardStyle = {
     display: 'flex',
     justifyContent: 'center',
@@ -32,7 +38,8 @@ export default function TeaPage({ tea }) {
       body: JSON.stringify(inputValue),
     });
     const data = await response.json();
-    setInputValue((prev) => [data, ...prev]);
+    setComments((prev) => [...prev, data]);
+    setInputValue({ title: '', userId: '', teaId: '' });
   };
 
   return (
@@ -53,7 +60,7 @@ export default function TeaPage({ tea }) {
           </Card.Body>
         </Card>
       </div>
-      <Form style={cardStyle} onSubmit={addComments}>
+      <Form style={cardStyle} onSubmit={addComments} type="reset">
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" style={{ width: '50%' }}>
           <Form.Label />
         </Form.Group>
@@ -62,8 +69,14 @@ export default function TeaPage({ tea }) {
           <Form.Control as="textarea" rows={3} name="title" placeholder="Оставьте комментарий" value={inputValue.title} onChange={changeHandler} />
         </Form.Group>
         <Button type="submit" variant="success" style={cardStyle}>Добавить</Button>
-        {' '}
       </Form>
+      <div>
+        { comments.map((comment) => (
+          <CommentCard comment={comment} />
+
+        ))}
+
+      </div>
     </>
   );
 }

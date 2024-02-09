@@ -4,10 +4,24 @@
     border: 4px solid green;
 
 }
+
 body {
     background-image: url('./img/3386277.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+}
+
+.commentsBlock {
+    width: 100%;
+    overflow-y: auto;
+    max-height: 300px;
+    display: flex;
+
+}
+
+.commentsContent {
+    justify-content: center;
+    width: 50%;
 }
