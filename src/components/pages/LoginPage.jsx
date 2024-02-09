@@ -15,19 +15,21 @@ const submitHandler = async (e) => {
 export default function LoginPage() {
   return (
     <form onSubmit={submitHandler}>
-      <div className="mb-3">
-        <label htmlFor="exampleInputEmail1" className="form-label">
-          Email address
-          <input name="email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-        </label>
+      <div style={{ marginLeft: '44%', marginTop: '15%' }}>
+        <div className="mb-3">
+          <label htmlFor="exampleInputEmail1" className="form-label">
+
+            <input name="email" type="email" placeholder="Email address" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+          </label>
+        </div>
+        <div className="mb-3">
+          <label htmlFor="exampleInputPassword1" className="form-label">
+            <input name="password" type="password" placeholder="Password" className="form-control" id="exampleInputPassword1" />
+          </label>
+        </div>
+
+        <button style={{ marginLeft: '6%', width: '100px' }} type="submit" className="btn btn-primary">Вход</button>
       </div>
-      <div className="mb-3">
-        <label htmlFor="exampleInputPassword1" className="form-label">
-          Password
-          <input name="password" type="password" className="form-control" id="exampleInputPassword1" />
-        </label>
-      </div>
-      <button type="submit" className="btn btn-primary">Submit</button>
     </form>
   );
 }

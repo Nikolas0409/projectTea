@@ -4,6 +4,11 @@ import { verifyAccessToken } from '../../middlewares/verifyTokens';
 
 const router = Router();
 
+router.post('/add', async (req, res) => {
+  const newTea = await Tea.create(req.body);
+  res.json(newTea);
+});
+
 router.post('/:id', verifyAccessToken, async (req, res) => {
   const { title } = req.body;
   const { id } = req.params;
@@ -20,14 +25,19 @@ router.post('/:id', verifyAccessToken, async (req, res) => {
   res.json(newCommentWithAuthor);
 });
 
-router.post('/add', async (req, res) => {
-  const newTea = await Tea.create(req.body);
-  res.json(newTea);
-});
-
 router.delete('/admin/:id', async (req, res) => {
   try {
     await Tea.destroy({ where: { id: req.params.id } });
+    res.sendStatus(200);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+router.delete('/teaPage/:id', async (req, res) => {
+  try {
+    await Comment.destroy({ where: { id: req.params.id } });
     res.sendStatus(200);
   } catch (error) {
     console.error(error);

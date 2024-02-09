@@ -7,8 +7,17 @@ import CommentCard from '../Ui/CommentCard';
 export default function TeaPage({
   tea, commentByTeaId,
 }) {
-  console.log(commentByTeaId);
   const [comments, setComments] = useState(commentByTeaId);
+
+  const deleteHandler = async (id) => {
+    try {
+      await fetch(`/api/teaPage/${id}`, { method: 'DELETE' });
+      setComments((prev) => prev.filter((el) => el.id !== id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const cardStyle = {
     display: 'flex',
     justifyContent: 'center',
@@ -57,7 +66,7 @@ export default function TeaPage({
             <Card.Text style={{ textAlign: 'center' }}>
               {tea.discription}
             </Card.Text>
-            <Button variant="primary" href="/" style={{ marginLeft: '70px' }}>На главную</Button>
+            <Button variant="primary" href="/">На главную</Button>
           </Card.Body>
         </Card>
       </div>
@@ -71,9 +80,9 @@ export default function TeaPage({
         </Form.Group>
         <Button type="submit" variant="success" style={cardStyle}>Добавить</Button>
       </Form>
-      <div>
+      <div style={{ marginBottom: '50px' }}>
         { comments.map((comment) => (
-          <CommentCard comment={comment} />
+          <CommentCard deleteHandler={deleteHandler} comment={comment} />
 
         ))}
 
