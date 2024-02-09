@@ -1,6 +1,9 @@
-const checkNoAuth = (req, res, next) => {
-  if (res.locals.user) return res.redirect('/');
-  return next();
-};
+function isAdmin(req, res, next) {
+  if (res.locals.user && res.locals.user.isAdmin === true) {
+    next();
+  } else {
+    res.redirect('/');
+  }
+}
 
-export default checkNoAuth;
+export default isAdmin;

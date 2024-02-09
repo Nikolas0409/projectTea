@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { Tea } from '../../../db/models';
-import checkNoAuth from '../../middlewares/checkAuth';
+import checkAuth from '../../middlewares/checkAuth';
 
 const router = Router();
 
@@ -10,7 +10,7 @@ router.get('/', async (req, res) => {
   res.render('MainPage', initState);
 });
 
-router.get('/admin', checkNoAuth, async (req, res) => {
+router.get('/admin', checkAuth, async (req, res) => {
   const teas = await Tea.findAll();
   const initState = { teas };
   res.render('AdminPage', initState);
