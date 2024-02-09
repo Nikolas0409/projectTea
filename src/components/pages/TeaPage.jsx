@@ -5,7 +5,7 @@ import {
 import CommentCard from '../Ui/CommentCard';
 
 export default function TeaPage({
-  tea, commentByTeaId,
+  tea, commentByTeaId, user,
 }) {
   const [comments, setComments] = useState(commentByTeaId);
 
@@ -41,7 +41,10 @@ export default function TeaPage({
   };
 
   const addComments = async (event) => {
-    event.preventDefault();
+    if (inputValue.title.trim() === '') {
+      alert('Введите комментарий!');
+      return;
+    } event.preventDefault();
     const response = await fetch(`http://localhost:3000/api/${tea.id}`, {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
@@ -70,7 +73,7 @@ export default function TeaPage({
           </Card.Body>
         </Card>
       </div>
-      <Form style={cardStyle} onSubmit={addComments} type="reset">
+      <Form style={cardStyle} onSubmit={user ? addComments : () => alert('Пожалуйста авторизуйтесь!')} type="reset">
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" style={{ width: '50%' }}>
           <Form.Label />
         </Form.Group>
