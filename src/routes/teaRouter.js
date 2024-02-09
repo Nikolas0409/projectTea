@@ -7,12 +7,17 @@ const teaRouter = express.Router();
 teaRouter.get('/:id', async (req, res) => {
   const { id } = req.params;
   const tea = await Tea.findByPk(id);
-  res.render('TeaPage', { tea });
+  const commentByTeaId = await Comment.findAll({
+    where: { teaId: id },
+    include: User,
+  });
+  const users = await User.findAll();
+  res.render('TeaPage', { tea, commentByTeaId, users });
 });
 
 teaRouter.post('/:id', verifyAccessToken, async (req, res) => {
   const { title } = req.body;
-  const { id } = req.params.id;
+  const { id } = req.params;
   const newComment = await Comment.create({
     userId: res.locals.user.id,
     title,
