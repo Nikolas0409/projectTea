@@ -14,44 +14,44 @@ export default function EditTeaPage({ tea }) {
   };
 
   return (
-    <form className="mt-3" onSubmit={submitHandler}>
-      <div className="mb-3">
+    <form className="mt-3" onSubmit={submitHandler} style={{ marginLeft: '650px' }}>
+      <div className="mb-3" style={{ marginTop: '100px' }}>
         <label htmlFor="inputName" className="form-label">
-          Сорт
-          <input name="name" type="text" className="form-control" id="nameId" />
+
+          <input name="name" type="text" className="form-control" id="nameId" placeholder="Сорт" />
         </label>
       </div>
       <div className="mb-3">
         <label htmlFor="inputLocation" className="form-label">
-          Страна
-          <input name="location" type="text" className="form-control" id="locationId" />
+
+          <input name="location" type="text" className="form-control" id="locationId" placeholder="Страна" />
         </label>
       </div>
       <div className="mb-3">
         <label htmlFor="inputLatitude" className="form-label">
-          Широта
-          <input name="latitude" type="text" className="form-control" id="latitudeId" />
+
+          <input name="latitude" type="text" className="form-control" id="latitudeId" placeholder="Широта" />
         </label>
       </div>
       <div className="mb-3">
         <label htmlFor="inputLongitude" className="form-label">
-          Долгота
-          <input name="longitude" type="text" className="form-control" id="longitudeId" />
+
+          <input name="longitude" type="text" className="form-control" id="longitudeId" placeholder="Долгота" />
         </label>
       </div>
       <div className="mb-3">
         <label htmlFor="inputImage" className="form-label">
-          Картинка
-          <input name="image" type="text" className="form-control" id="imageId" />
+
+          <input name="image" type="text" className="form-control" id="imageId" placeholder="Картинка" />
         </label>
       </div>
       <div className="mb-3">
         <label htmlFor="inputDiscription" className="form-label">
-          Описание
-          <input name="discription" type="text" className="form-control" id="discriptionId" />
+
+          <input name="discription" type="text" className="form-control" id="discriptionId" placeholder="Описание" />
         </label>
       </div>
-      <button type="submit" className="btn btn-primary">Редактировать</button>
+      <button type="submit" className="btn btn-primary" style={{ marginLeft: '37px' }}>Редактировать</button>
     </form>
   );
 }
