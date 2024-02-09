@@ -14,14 +14,39 @@ body {
 }
 
 .commentsBlock {
-    width: 100%;
+    width: 500px;
     overflow-y: auto;
     max-height: 300px;
     display: flex;
+    margin-left: 35%;
+
 
 }
 
 .commentsContent {
     justify-content: center;
     width: 50%;
+}
+
+.commentBlock {
+    width: 200px;
+}
+
+#deleteButton {
+    width: 100px;
+    border-radius: 25px;
+    margin-left: 190px;
+    margin-top: 30px;
+}
+
+.card-body {
+    width: 100%;
+    background-color: #7f9d5d29;
+    text-align: center;
+
+}
+
+#new-tea-form{
+    margin-left: 565px;
+    margin-top: 20px
 }

@@ -12,7 +12,7 @@ export default function NavBar({ user }) {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Сорта чая</Nav.Link>
+            <Nav.Link />
           </Nav>
           {!user
             ? (

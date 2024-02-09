@@ -35,6 +35,16 @@ router.delete('/admin/:id', async (req, res) => {
   }
 });
 
+router.delete('/teaPage/:id', async (req, res) => {
+  try {
+    await Comment.destroy({ where: { id: req.params.id } });
+    res.sendStatus(200);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
 router.patch('/:id', async (req, res) => {
   console.log('-----', req.params);
   const {

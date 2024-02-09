@@ -36,8 +36,10 @@ export default function New({ setShowComponent, setAllTeas }) {
             type="text"
             name="name"
             value={input.name || ''}
+            placeholder="Сорт"
+            style={{ marginTop: '2px', borderRadius: '5px' }}
           />
-          <span className="input-group-label">Сорт:</span>
+          <span className="input-group-label" />
         </label>
 
         <label className="input-group col-1-3">
@@ -47,8 +49,10 @@ export default function New({ setShowComponent, setAllTeas }) {
             type="text"
             name="location"
             value={input.location || ''}
+            placeholder="Страна"
+            style={{ marginTop: '2px', borderRadius: '5px' }}
           />
-          <span className="input-group-label">Страна:</span>
+          <span className="input-group-label" />
         </label>
 
         <label className="input-group col-1-3">
@@ -58,8 +62,10 @@ export default function New({ setShowComponent, setAllTeas }) {
             type="text"
             name="latitude"
             value={input.latitude || ''}
+            placeholder="Широта"
+            style={{ marginTop: '2px', borderRadius: '5px' }}
           />
-          <span className="input-group-label">Широта:</span>
+          <span className="input-group-label" />
         </label>
         <label className="input-group col-1-3">
           <input
@@ -68,8 +74,10 @@ export default function New({ setShowComponent, setAllTeas }) {
             type="text"
             name="longitude"
             value={input.longitude || ''}
+            placeholder="Долгота"
+            style={{ marginTop: '2px', borderRadius: '5px' }}
           />
-          <span className="input-group-label">Долгота:</span>
+          <span className="input-group-label" />
         </label>
 
         <label className="input-group col-1-3">
@@ -79,8 +87,10 @@ export default function New({ setShowComponent, setAllTeas }) {
             type="text"
             name="image"
             value={input.image || ''}
+            placeholder="Картинка"
+            style={{ marginTop: '2px', borderRadius: '5px' }}
           />
-          <span className="input-group-label">Картинка:</span>
+          <span className="input-group-label" />
         </label>
 
         <label className="input-group col-1-3">
@@ -90,10 +100,13 @@ export default function New({ setShowComponent, setAllTeas }) {
             type="text"
             name="discription"
             value={input.discription || ''}
+            placeholder="Описание"
+            style={{ marginTop: '2px', borderRadius: '5px' }}
+
           />
-          <span className="input-group-label">Описание:</span>
+          <span className="input-group-label" />
         </label>
-        <button type="submit" className="button dark">Добавить</button>
+        <button style={{ marginLeft: '50px', marginTop: '20px', marginBottom: '30px' }} type="submit" className="button dark">Добавить</button>
       </form>
     </>
   );

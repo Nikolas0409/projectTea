@@ -15,7 +15,7 @@ export default function SignupPage() {
   };
   return (
     <form onSubmit={submitHandler}>
-      <div style={{ marginLeft: '46%', marginTop: '15%' }}>
+      <div style={{ marginLeft: '44%', marginTop: '15%' }}>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
             <input name="name" type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="User" />
@@ -31,7 +31,7 @@ export default function SignupPage() {
             <input name="password" type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
           </label>
         </div>
-        <button type="submit" className="btn btn-primary">Регистрация</button>
+        <button style={{ marginLeft: '4.5%' }} type="submit" className="btn btn-primary">Регистрация</button>
       </div>
     </form>
   );

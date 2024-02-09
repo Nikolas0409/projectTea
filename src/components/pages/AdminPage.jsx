@@ -36,7 +36,16 @@ export default function AdminPage({ teas }) {
     <div className="container mt-3">
 
       <div className="track1c mb-3">
-        <button type="submit" style={{ width: '100px', height: '200px' }} className="button dark" onClick={() => setShowComponent(true)}>Добавить чай</button>
+        <button
+          type="submit"
+          style={{
+            width: '150px', height: '70px', borderRadius: '25px', marginLeft: '45%', marginTop: '50px', marginBottom: '30px',
+          }}
+          className="button dark"
+          onClick={() => setShowComponent(true)}
+        >
+          Добавить чай
+        </button>
         <div>
           {showComponent && <NewPage setShowComponent={setShowComponent} setAllTeas={setAllTeas} />}
         </div>
@@ -60,10 +69,10 @@ export default function AdminPage({ teas }) {
 
                 </div>
                 <div className="d-grid gap-2 d-md-block">
-                  <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <a href={`/edit/${el.id}`}>Редактировать</a>
+                  <button type="button" className="btn btn-secondary" style={{ marginTop: '70px', marginLeft: '20px', marginBottom: '5px' }} data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <a href={`/edit/${el.id}`} style={{ textDecoration: 'none', color: 'white' }}>Редактировать</a>
                   </button>
-                  <button onClick={() => deleteHandler(el?.id)} className="btn btn-danger" type="button">Удалить</button>
+                  <button style={{ marginLeft: '20px', width: '135px' }} onClick={() => deleteHandler(el?.id)} className="btn btn-danger" type="button">Удалить</button>
                 </div>
               </div>
             </div>
