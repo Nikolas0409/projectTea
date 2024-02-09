@@ -6,16 +6,16 @@ export default function Layout({ children, initState }) {
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossOrigin />
+        <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossOrigin="true" />
 
         <script
           src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"
-          crossOrigin
+          crossOrigin="true"
         />
 
         <script
           src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"
-          crossOrigin
+          crossOrigin="true"
         />
         <link rel="stylesheet" href="/style.css" />
         <script defer src="/app.js" />

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import NewPage from './NewPage';
 
 export default function AdminPage({ teas }) {
-  const [curElement, setCurElement] = useState({});
   const [allTeas, setAllTeas] = useState(teas);
   const [showComponent, setShowComponent] = useState(false);
+  const [err, setErr] = useState(false);
 
   const deleteHandler = async (id) => {
     try {
@@ -14,6 +14,23 @@ export default function AdminPage({ teas }) {
       console.log(error);
     }
   };
+  //   const clickHandler = async (e) => {
+  //     e.preventDefault();
+
+  // const data = Object.fromEntries(new FormData(e.target));
+
+  // const res = await fetch('/edit', {
+  //   method: 'PUT',
+  //   headers: {
+  //     'Content-Type': 'application/json;charset=utf-8',
+  //   },
+  //   body: JSON.stringify(data),
+  // });
+  // if (res.ok) {
+  //   window.location = '/edit';
+  // } else {
+  //   setErr(true);
+  // }
 
   return (
     <div className="container mt-3">
@@ -43,8 +60,8 @@ export default function AdminPage({ teas }) {
 
                 </div>
                 <div className="d-grid gap-2 d-md-block">
-                  <button onClick={() => setCurElement(el)} type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    Редактировать
+                  <button type="button" className="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <a href={`/edit/${el.id}`}>Редактировать</a>
                   </button>
                   <button onClick={() => deleteHandler(el?.id)} className="btn btn-danger" type="button">Удалить</button>
                 </div>
