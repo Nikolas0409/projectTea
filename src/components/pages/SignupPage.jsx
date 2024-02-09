@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import axios from 'axios';
 
@@ -14,25 +15,24 @@ export default function SignupPage() {
   };
   return (
     <form onSubmit={submitHandler}>
-      <div className="mb-3">
-        <label htmlFor="exampleInputEmail1" className="form-label">
-          Username
-          <input name="name" type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-        </label>
+      <div style={{ marginLeft: '46%', marginTop: '15%' }}>
+        <div className="mb-3">
+          <label htmlFor="exampleInputEmail1" className="form-label">
+            <input name="name" type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="User" />
+          </label>
+        </div>
+        <div className="mb-3">
+          <label htmlFor="exampleInputEmail1" className="form-label">
+            <input name="email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address" />
+          </label>
+        </div>
+        <div className="mb-3">
+          <label htmlFor="exampleInputPassword1" className="form-label">
+            <input name="password" type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+          </label>
+        </div>
+        <button type="submit" className="btn btn-primary">Регистрация</button>
       </div>
-      <div className="mb-3">
-        <label htmlFor="exampleInputEmail1" className="form-label">
-          Email address
-          <input name="email" type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
-        </label>
-      </div>
-      <div className="mb-3">
-        <label htmlFor="exampleInputPassword1" className="form-label">
-          Password
-          <input name="password" type="password" className="form-control" id="exampleInputPassword1" />
-        </label>
-      </div>
-      <button type="submit" className="btn btn-primary">Submit</button>
     </form>
   );
 }
