@@ -72,4 +72,20 @@ router.post('/add', async (req, res) => {
   res.json(newTea);
 });
 
+router.patch('/:id', async (req, res) => {
+  const {
+    name, location, latitude, longitude, image, discription,
+  } = req.body;
+  const id = +req.params.id;
+  const tea = await Tea.findOne({ where: { id } });
+  tea.name = name;
+  tea.location = location;
+  tea.latitude = latitude;
+  tea.longitude = longitude;
+  tea.image = image;
+  tea.discription = discription;
+  await tea.save();
+  res.sendStatus(200);
+});
+
 export default router;
