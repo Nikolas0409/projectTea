@@ -19,7 +19,7 @@ export default function AdminPage({ teas }) {
     <div className="container mt-3">
 
       <div className="track1c mb-3">
-      <button type="submit" style={{ width: '200px', height: '200px' }} className="button dark" onClick={() => setShowComponent(true)}>Добавить чай</button>
+        <button type="submit" style={{ width: '200px', height: '200px' }} className="button dark" onClick={() => setShowComponent(true)}>Добавить чай</button>
         <div>
           {showComponent && <NewPage setShowComponent={setShowComponent} setAllTeas={setAllTeas} />}
         </div>

@@ -7,6 +7,7 @@ import CommentCard from '../Ui/CommentCard';
 export default function TeaPage({
   tea, commentByTeaId,
 }) {
+  console.log(commentByTeaId);
   const [comments, setComments] = useState(commentByTeaId);
   const cardStyle = {
     display: 'flex',
@@ -32,7 +33,7 @@ export default function TeaPage({
 
   const addComments = async (event) => {
     event.preventDefault();
-    const response = await fetch(`http://localhost:3000/teaPage/${tea.id}`, {
+    const response = await fetch(`http://localhost:3000/api/${tea.id}`, {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
       body: JSON.stringify(inputValue),
