@@ -16,7 +16,7 @@ router.get('/admin', checkAuth, async (req, res) => {
   res.render('AdminPage', initState);
 });
 
-router.get('/edit/:id', async (req, res) => {
+router.get('/edit/:id', checkAuth, async (req, res) => {
   const { id } = +req.params;
   const tea = await Tea.findOne({ where: id });
   res.render('EditTeaPage', { tea });
