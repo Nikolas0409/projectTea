@@ -1,12 +1,18 @@
 import { Router } from 'express';
-import { Tea } from '../../../db/models';
+import { Tea, User, Comment } from '../../../db/models';
 
 const teaPageRouter = Router();
 
 teaPageRouter.get('/:id', async (req, res) => {
   const { id } = req.params;
   const tea = await Tea.findByPk(id);
-  res.render('TeaPage', { tea });
+  const commentByTeaId = await Comment.findAll({
+    where: { teaId: id },
+    include: User,
+  });
+  console.log(commentByTeaId);
+  const users = await User.findAll();
+  res.render('TeaPage', { tea, commentByTeaId, users });
 });
 
 export default teaPageRouter;

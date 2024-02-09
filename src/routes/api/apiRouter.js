@@ -6,7 +6,7 @@ const router = Router();
 
 router.post('/:id', verifyAccessToken, async (req, res) => {
   const { title } = req.body;
-  const { id } = req.params.id;
+  const { id } = req.params;
   const newComment = await Comment.create({
     userId: res.locals.user.id,
     title,
