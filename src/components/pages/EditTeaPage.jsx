@@ -2,12 +2,12 @@ import axios from 'axios';
 import React from 'react';
 
 export default function EditTeaPage({ tea }) {
+  console.log(tea);
   const submitHandler = async (e) => {
     e.preventDefault();
-    const formData = Object.fromEntries(new FormData(e.target));
-
     try {
-      await axios.patch(`/api/edit/${tea.id}`, formData);
+      const response = await axios.patch(`/api/${tea.id}`, Object.fromEntries(new FormData(e.target)));
+      if (response.status === 200) window.location = '/';
     } catch (error) {
       alert(error.response.data.message);
     }
@@ -34,9 +34,9 @@ export default function EditTeaPage({ tea }) {
         </label>
       </div>
       <div className="mb-3">
-        <label htmlFor="inputLangitude" className="form-label">
+        <label htmlFor="inputLongitude" className="form-label">
           Долгота
-          <input name="langitude" type="text" className="form-control" id="langitudeId" />
+          <input name="longitude" type="text" className="form-control" id="longitudeId" />
         </label>
       </div>
       <div className="mb-3">

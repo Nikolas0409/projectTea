@@ -15,4 +15,10 @@ router.get('/admin', async (req, res) => {
   res.render('AdminPage', initState);
 });
 
+router.get('/edit/:id', async (req, res) => {
+  const { id } = +req.params;
+  const tea = await Tea.findOne({ where: id });
+  res.render('EditTeaPage', { tea });
+});
+
 export default router;
